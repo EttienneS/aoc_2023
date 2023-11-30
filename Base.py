@@ -8,18 +8,18 @@ class Base:
     def read_input_as_lines(self, part="") -> List[str]:
         file_path = self.get_input_file_for_part(part)
 
-        try:
-            with open(file_path, "r") as file:
-                # Read all lines from the file into a list
-                lines = file.readlines()
+        with open(file_path, "r") as file:
+            # Read all lines from the file into a list
+            lines = file.readlines()
 
-            return list(map(lambda line: line.strip(), lines))
-        except FileNotFoundError:
-            print(f"Error: File not found - {file_path}")
-            return []
-        except Exception as e:
-            print(f"Error: {e}")
-            return []
+        return [line.strip() for line in lines]
+
+    def read_input_as_string(self, part="", seperator="") -> str:
+        return seperator.join(self.read_input_as_lines(part))
+
+    def read_input_as_int_array(self, part="", split=",") -> List[int]:
+        input_strings = self.read_input_as_string(part, seperator=split).split(split)
+        return [int(num) for num in input_strings]
 
     def get_input_file_for_part(self, part):
         file_path = f"Inputs/{self.name}"
