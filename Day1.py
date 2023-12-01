@@ -72,8 +72,8 @@ class Day1(Base):
 
         answer = 0
         for line in self.read_input_as_lines():
-            firstIndex = 999999
-            lastIndex = -999999
+            firstIndex = 999
+            lastIndex = -999
             first = 0
             last = 0
 
