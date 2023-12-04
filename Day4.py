@@ -53,13 +53,11 @@ class Card:
 
     def __init__(self, line) -> None:
         split1 = line.split(":")
-        self.id = int(
-            split1[0].replace("   ", " ").replace("  ", " ").split(" ")[1].strip()
-        )
+        self.id = int(split1[0].split()[1].strip())
         split2 = [part.strip() for part in split1[1].replace("  ", " ").split("|")]
 
-        self.winning_numbers = [int(num.strip()) for num in split2[0].split(" ")]
-        self.current_numbers = [int(num.strip()) for num in split2[1].split(" ")]
+        self.winning_numbers = [int(num.strip()) for num in split2[0].split()]
+        self.current_numbers = [int(num.strip()) for num in split2[1].split()]
 
     def __str__(self):
         return f"Card {self.id}: {self.winning_numbers} | {self.current_numbers}"
