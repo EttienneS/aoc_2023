@@ -1,10 +1,10 @@
 import time
 
-from Day4 import Day4
+from Day5 import Day5
 
 start_time = time.time()
 
-day = Day4()
+day = Day5()
 
 day.part1()
 
