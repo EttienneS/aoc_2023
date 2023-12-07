@@ -81,9 +81,9 @@ class Day5(Base):
 
 class Range():
 
-    source: -1
-    dest: -1
-    size: -1
+    source:int = -1
+    dest:int =-1
+    size:int =-1
 
     def __init__(self, line: str) -> None:
         parts = [int(part) for part in line.split()]
