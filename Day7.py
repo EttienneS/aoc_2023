@@ -33,9 +33,7 @@ class Day7(Base):
         total = 0
         for i, hand in enumerate(ranked_hands):
             total += hand.bid * (i + 1)
-            print(
-                f"{i+1} {hand.raw} {hand.bid} = {hand.bid * (i+1)} ({hand.type} - {hand.value})"
-            )
+            # print(f"{i+1} {hand.raw} {hand.bid} = {hand.bid * (i+1)} ({hand.type} - {hand.value})")
         return total
 
     def get_ranked_hands(self, hand_groupings, rank, jokers):
@@ -89,8 +87,8 @@ class Hand:
             else:
                 temp[card] = 1
 
-        # this is kind of odd but it works, we convert each number based on the rank to the 
-        # hex equivalent and slap them together, then we turn that back into a number to get 
+        # this is kind of odd but it works, we convert each number based on the rank to the
+        # hex equivalent and slap them together, then we turn that back into a number to get
         # a sortable unique 'value' for each hand
         self.value = int(temp_value.replace("0x", ""), 16)
 
