@@ -56,6 +56,10 @@ class Day8(Base):
         # then you find the lowest common multiplier (LCM/LCD) for the chains (which python just does for us)
         # that answer is then how many loops would need to be completed, its one of those problems
         # that is not really solvable unless you already know of that type of solution
+        # another gotcha here is that the 'loop' does not include the start, so if you keep repeating the 
+        # directions and test to see if you get back to the start you wont pick up the loop, but it does
+        # include the end, so you can test to see if it goes from end to end in the same number of steps
+        # to verify it is in fact a proper loop
         lcm = math.lcm(*loops)
         print(f"Found path in {lcm} steps")
 
